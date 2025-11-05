@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('https://restcountries.com/v3.1/all?fields=name,flags,capital,region')
         .then(response => response.json())
         .then(data => {
-            displayCountries(data); 
-            setupSearch(data);
+            displayCountries(data);
         })
         .catch(error => console.error('Error fetching country data:', error));
 });
@@ -26,12 +25,15 @@ function displayCountries(countries) {
     });
 }
 
-function setupSearch(countries) {
-    searchInput.addEventListener('input', () => {
-        const query = searchInput.value.toLowerCase();
-        const filteredCountries = countries.filter(country =>
-            country.name.common.toLowerCase().includes(query)
-        );
-        displayCountries(filteredCountries);
+function filterCountries() {
+    const query = searchInput.value.toLowerCase();
+    const countries = countryContainer.getElementsByClassName('country');
+    Array.from(countries).forEach(country => {
+        const countryName = country.getElementsByTagName('h2')[0].innerText.toLowerCase();
+        if (countryName.includes(query)) {
+            country.style.display = '';
+        } else {
+            country.style.display = 'none';
+        }
     });
 }
