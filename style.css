@@ -1,0 +1,34 @@
+div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+input{
+    width: 50%;
+    padding: 10px;
+    margin: 20px auto;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#countryContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-direction: row;
+}
+    
+.country{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 250px;
+    width: 150px;
+    border: #ccc 1px solid;
+    padding: 17px;
+}
